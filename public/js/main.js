@@ -47,7 +47,7 @@ async function putData(data) {
   console.log(time);
   $("#time>h1").text(time);
   $(".smallest").text("DD:HH:MM");
-  $("#comments").show();
+  // $("#comments").show();
 }
 
 //to get most searched =========================================================================
