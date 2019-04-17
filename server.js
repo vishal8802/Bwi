@@ -5,7 +5,7 @@ const {
     db,
     Search
 } = require('./db/db')
-const PORT = process.env.PORT | 7777
+const PORT = process.env.PORT || 7777
 
 app.use(express.json())
 app.use(express.urlencoded({
