@@ -2,7 +2,7 @@
 
 * {
   font-family: "Nova Round", cursive;
-  text-shadow: 3px 3px 13px black;
+
 
 }
 
@@ -141,11 +141,23 @@ a {
   margin-top: -25px;
 }
 
+#loading {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .smallest {
   font-size: 14px;
   text-align: center;
   color: white;
   margin-top: -75px;
+}
+
+.seasons {
+  font-size: 18px;
+  text-align: center;
+  color: white;
 }
 
 #time>h1 {
@@ -156,4 +168,63 @@ a {
 
 #comments {
   margin: 100px 0 0 100px;
+}
+
+.details {
+  margin: 120px 400px 100px 100px;
+  color: white;
+  text-shadow: 3px 3px 13px black;
+  -webkit-text-stroke: 0.7px #000000;
+}
+
+
+
+/* loading icon========================== */
+@keyframes lds-rolling {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+
+
+.lds-rolling {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lds-rolling div,
+.lds-rolling div:after {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border: 20px solid #f09237;
+  border-top-color: transparent;
+  border-radius: 50%;
+}
+
+.lds-rolling div {
+  -webkit-animation: lds-rolling 1s linear infinite;
+  animation: lds-rolling 1s linear infinite;
+  top: 100px;
+  left: 100px;
+}
+
+.lds-rolling div:after {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.lds-rolling {
+  width: 89px !important;
+  height: 89px !important;
+  -webkit-transform: translate(-44.5px, -44.5px) scale(0.445) translate(44.5px, 44.5px);
+  transform: translate(-44.5px, -44.5px) scale(0.445) translate(44.5px, 44.5px);
 }

@@ -30,6 +30,10 @@
       <i class="fas fa-x fa-search"> </i>
     </button>
   </div>
+  <!-- <img hidden id="loading" width="70px" src="./resources/loading2.gif" alt=""> -->
+  <div style="width:100%;height:100%" class="lds-rolling">
+    <div></div>
+  </div>
   <h2 class="home_h2">Popular searches : </h2>
   <div id='button-group'></div>
   <h2 hidden id="series_name">Please wait..</h2>
@@ -37,14 +41,24 @@
     <div id="thumb"></div>
     <div id="time">
       <h1></h1>
-      <h6 class="smallest"></h6>
+      <h6 hidden class="smallest">DD:HH:MM</h6>
+      <h6 hidden class="seasons">SEASONS : <span class="no_of_seasons"></span></h6>
     </div>
   </div>
 
-  <div hidden id="comments">
-    <textarea rows="4" cols="50"></textarea>
-  </div>
 
+
+  <div hidden class="details">
+
+    <h1 class="name"></h1>
+    <h3 class="overview"></h3>
+    <br><br><br><br>
+    <h4 class="genre"></h4>
+    <h4 class="language"></h4>
+    <h4 class="creators"></h4>
+    <h4 class="producers"></h4>
+
+  </div>
 
 </body>
 
