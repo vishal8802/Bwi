@@ -18,10 +18,14 @@ app.use('/', express.static(__dirname + '/public'))
 
 app.post('/find', async (req, res) => {
     let seriesDetails = await utility.getTime(req.body.search)
-    let search = req.body.search.replace(/%20/g, ' ')
-    utility.saveSearch(search)
-    console.log('this must be last')
-    res.send(seriesDetails)
+    if (seriesDetails == `no result found :(`) {
+        res.send(seriesDetails)
+    } else {
+        let search = req.body.search.replace(/%20/g, ' ')
+        utility.saveSearch(search)
+        console.log('this must be last')
+        res.send(seriesDetails)
+    }
 })
 // app.get('/s', (req, res) => {
 //     res.send('hello')

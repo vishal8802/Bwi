@@ -76,7 +76,7 @@ a {
 }
 
 .home_h2 {
-  margin-top: 280px;
+
   color: white;
   text-align: center;
   margin-bottom: 25px;
@@ -177,7 +177,9 @@ a {
   -webkit-text-stroke: 0.7px #000000;
 }
 
-
+.no_result {
+  margin-top: 200px
+}
 
 /* loading icon========================== */
 @keyframes lds-rolling {

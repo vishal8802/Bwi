@@ -1,7 +1,8 @@
 $('.lds-rolling').hide()
-
+console.log($('.msg2').offset())
 $("#search_btn").click(async () => {
   console.log("clicked");
+  $('.no_result').text('')
   await $("#searchbox").animate({
       width: "-5px",
       fontSize: "0px",
@@ -16,12 +17,18 @@ $("#search_btn").click(async () => {
       search: $("#searchbox").val()
     },
     async data => {
-      await putData(data);
-      $("html,body").animate({
-          scrollTop: $("#series_name").offset().top - 200
-        },
-        "slow"
-      );
+      if (data == `no result found :(`) {
+        console.log('no res found');
+        $('.no_result').text(data)
+      } else {
+
+        await putData(data);
+        $("html,body").animate({
+            scrollTop: $("#series_name").offset().top - 200
+          },
+          "slow"
+        );
+      }
       $('.lds-rolling').hide()
       $('#search_div').fadeIn(500)
 

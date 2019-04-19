@@ -14,9 +14,13 @@ const getTime = async (search) => {
     let url = `${api_provider}/3/search/multi?api_key=${api_key}&query=${search}&include_adult=true&page=1`;
     const resolve_url = await fetch(url)
     let json = await resolve_url.json()
+    if (json.total_results == 0) {
+        return `no result found :(`
+    }
     const resolve_url_episodes = await fetch(`${api_provider}/3/tv/${json.results[0].id}?api_key=${api_key}`)
     json = await resolve_url_episodes.json()
     return json
+
 
 }
 
