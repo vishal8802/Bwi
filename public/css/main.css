@@ -48,7 +48,6 @@ a {
 .search {
   position: absolute;
   left: 50%;
-  top: 320px;
   transform: translate(-50%, -50%);
 }
 
@@ -171,7 +170,7 @@ a {
 }
 
 .details {
-  margin: 120px 400px 100px 100px;
+  margin: 120px 5% 100px 100px;
   color: white;
   text-shadow: 3px 3px 13px black;
   -webkit-text-stroke: 0.7px #000000;

@@ -1,37 +1,46 @@
-$('.lds-rolling').hide()
-console.log($('.msg2').offset())
+$(".lds-rolling").hide();
+$(".search").css({
+  top: `${$(".msg2").offset().top + 150}px`
+});
+$(window).resize(() => {
+  $(".search").css({
+    top: `${$(".msg2").offset().top + 150}px`
+  });
+});
+
 $("#search_btn").click(async () => {
   console.log("clicked");
-  $('.no_result').text('')
-  await $("#searchbox").animate({
+  $(".no_result").text("");
+  await $("#searchbox").animate(
+    {
       width: "-5px",
       fontSize: "0px",
       opacity: "0"
     },
     200
   );
-  $('#search_div').fadeOut(300)
-  $('.lds-rolling').show()
+  $("#search_div").fadeOut(300);
+  $(".lds-rolling").show();
   $.post(
-    "/find", {
+    "/find",
+    {
       search: $("#searchbox").val()
     },
     async data => {
       if (data == `no result found :(`) {
-        console.log('no res found');
-        $('.no_result').text(data)
+        console.log("no res found");
+        $(".no_result").text(data);
       } else {
-
         await putData(data);
-        $("html,body").animate({
+        $("html,body").animate(
+          {
             scrollTop: $("#series_name").offset().top - 200
           },
           "slow"
         );
       }
-      $('.lds-rolling').hide()
-      $('#search_div').fadeIn(500)
-
+      $(".lds-rolling").hide();
+      $("#search_div").fadeIn(500);
     }
   );
 });
@@ -65,46 +74,44 @@ async function putData(data) {
     (min % 60);
   console.log(time);
   $("#time>h1").text(time);
-  $(".smallest").show()
-  $('.no_of_seasons').html(data.number_of_seasons)
-  $('.seasons').show()
-  $('.name').text(data.original_name)
-  $('.overview').text(data.overview)
+  $(".smallest").show();
+  $(".no_of_seasons").html(data.number_of_seasons);
+  $(".seasons").show();
+  $(".name").text(data.original_name);
+  $(".overview").text(data.overview);
   let genres = ``;
   let language = ``;
   let creator = ``;
   let producer = ``;
-  (data.genres).forEach(name => {
-    genres += ` ${name.name} |`
+  data.genres.forEach(name => {
+    genres += ` ${name.name} |`;
   });
   genres = genres.slice(0, -1);
 
-  (data.languages).forEach(name => {
-    language += ` ${name},`
+  data.languages.forEach(name => {
+    language += ` ${name},`;
   });
   language = language.slice(0, -1);
 
-  (data.created_by).forEach(name => {
-    creator += ` ${name.name},`
+  data.created_by.forEach(name => {
+    creator += ` ${name.name},`;
   });
   creator = creator.slice(0, -1);
 
-  (data.production_companies).forEach(name => {
+  data.production_companies.forEach(name => {
     if (name.origin_country) {
-      producer += ` ${name.name} | ${name.origin_country},`
+      producer += ` ${name.name} | ${name.origin_country},`;
     } else {
-      producer += ` ${name.name},`
+      producer += ` ${name.name},`;
     }
-  })
+  });
   producer = producer.slice(0, -1);
 
-
-  $('.genre').html(`GENRE : ${genres}`)
-  $('.language').html(`LANGUAGE : ${language}`)
-  $('.creators').html(`CREATED BY : ${creator}`)
-  $('.producers').html(`PRODUCED BY ; ${producer}`)
-  $('.details').show();
-
+  $(".genre").html(`GENRE : ${genres}`);
+  $(".language").html(`LANGUAGE : ${language}`);
+  $(".creators").html(`CREATED BY : ${creator}`);
+  $(".producers").html(`PRODUCED BY ; ${producer}`);
+  $(".details").show();
 }
 
 //to get most searched =========================================================================
@@ -120,10 +127,19 @@ $.post("/get_most_search", {}, data => {
 
 //search bar functions===========================================================================
 
+let window_width = 0;
 $("#searchbox").hide();
 $("#search_div").mouseenter(() => {
-  $("#searchbox").animate({
-      width: "300px",
+  window_width = $(window).width();
+  if (window_width < 820) {
+    window_width = 200;
+  } else {
+    window_width = 300;
+  }
+  console.log(window_width);
+  $("#searchbox").animate(
+    {
+      width: `${window_width}px`,
       fontSize: "30px",
       opacity: "1"
     },
@@ -131,7 +147,8 @@ $("#search_div").mouseenter(() => {
   );
 });
 $("#search_div").mouseleave(() => {
-  $("#searchbox").animate({
+  $("#searchbox").animate(
+    {
       width: "-5px",
       fontSize: "0px",
       opacity: "0"
@@ -143,7 +160,8 @@ $("#search_div").mouseleave(() => {
 function copy(target) {
   console.log(target.innerText);
   $("#searchbox").val(target.innerText);
-  $("#searchbox").animate({
+  $("#searchbox").animate(
+    {
       width: "300px",
       fontSize: "30px",
       opacity: "1"
