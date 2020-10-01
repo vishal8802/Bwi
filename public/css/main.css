@@ -2,8 +2,6 @@
 
 * {
   font-family: "Nova Round", cursive;
-
-
 }
 
 body {
@@ -21,12 +19,13 @@ body {
   text-shadow: 0px 0px 4px #f09237;
 }
 
-body>h1 {
+body > h1 {
   color: white;
   text-align: center;
 }
 
-.nav {}
+.nav {
+}
 
 .border {
   border: 1px solid #f09237;
@@ -39,8 +38,8 @@ a {
   text-decoration: none;
 }
 
-.nav>h1,
-.nav>a {
+.nav > h1,
+.nav > a {
   color: white;
   font-family: "Nova Round", cursive;
 }
@@ -75,7 +74,6 @@ a {
 }
 
 .home_h2 {
-
   color: white;
   text-align: center;
   margin-bottom: 25px;
@@ -121,7 +119,7 @@ a {
   text-shadow: 3px 3px 13px black;
 }
 
-#thumb>img {
+#thumb > img {
   margin-left: 100px;
   box-shadow: 3px 3px 30px 1px black;
 }
@@ -159,7 +157,7 @@ a {
   color: white;
 }
 
-#time>h1 {
+#time > h1 {
   color: #f09237;
   text-align: center;
   font-size: 100px;
@@ -171,13 +169,13 @@ a {
 
 .details {
   margin: 120px 5% 100px 100px;
-  color: white;
+  color: #fff;
   text-shadow: 3px 3px 13px black;
   -webkit-text-stroke: 0.7px #000000;
 }
 
 .no_result {
-  margin-top: 200px
+  margin-top: 200px;
 }
 
 /* loading icon========================== */
@@ -192,8 +190,6 @@ a {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-
-
 
 .lds-rolling {
   display: block;
@@ -226,6 +222,7 @@ a {
 .lds-rolling {
   width: 89px !important;
   height: 89px !important;
-  -webkit-transform: translate(-44.5px, -44.5px) scale(0.445) translate(44.5px, 44.5px);
+  -webkit-transform: translate(-44.5px, -44.5px) scale(0.445)
+    translate(44.5px, 44.5px);
   transform: translate(-44.5px, -44.5px) scale(0.445) translate(44.5px, 44.5px);
 }
